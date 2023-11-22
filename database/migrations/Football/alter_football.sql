@@ -85,3 +85,15 @@ CREATE TABLE IF NOT EXISTS player_temp (
 INSERT INTO player_temp SELECT * FROM player;
 DROP TABLE player;
 ALTER TABLE player_temp RENAME TO player;
+
+ALTER TABLE match_result
+ADD score VARCHAR(10),
+ADD buts_club1 INTEGER,
+ADD buts_club2 INTEGER;
+
+ALTER TABLE match 
+ADD points_club1 INTEGER,
+ADD points_club2 INTEGER;
+
+DELETE FROM club
+WHERE id = 56;
